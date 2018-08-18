@@ -1,6 +1,6 @@
 # Realtime bar chart with D3.js and Pusher
 
-Demo of a realtime bar chart with D3.js and Pusher.
+Demo of a realtime bar chart with D3.js and Pusher. Article: https://pusher.com/tutorials/live-graph-d3
 
 ## Getting Started
 

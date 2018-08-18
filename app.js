@@ -1,4 +1,3 @@
-// set the dimensions and margins of the graph
 const margin = { top: 20, right: 20, bottom: 30, left: 40 };
 const width = 960 - margin.left - margin.right;
 const height = 500 - margin.top - margin.bottom;
@@ -92,6 +91,7 @@ function update(poll) {
       return height - y(d.votes);
     })
     .on('mousemove', d => {
+      console.log(d);
       tip
         .style('position', 'absolute')
         .style('left', `${d3.event.pageX + 10}px`)
@@ -110,13 +110,3 @@ function update(poll) {
   // Update the y-axis
   svg.select('.y-axis').call(d3.axisLeft(y));
 }
-
-const pusher = new Pusher('<your app key>', {
-  cluster: '<your app cluster>',
-  encrypted: true,
-});
-
-const channel = pusher.subscribe('poll-channel');
-channel.bind('update-poll', data => {
-  update(data.poll);
-});
