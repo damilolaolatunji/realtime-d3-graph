@@ -110,3 +110,13 @@ function update(poll) {
   // Update the y-axis
   svg.select('.y-axis').call(d3.axisLeft(y));
 }
+
+const pusher = new Pusher('<your app key>', {
+  cluster: '<your app cluster>',
+  encrypted: true,
+});
+
+const channel = pusher.subscribe('poll-channel');
+channel.bind('update-poll', data => {
+  update(data.poll);
+});
